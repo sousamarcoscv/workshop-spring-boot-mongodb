@@ -16,6 +16,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import com.marcossousa.workshopmongo.domain.User;
 import com.marcossousa.workshopmongo.dto.UserDTO;
 import com.marcossousa.workshopmongo.services.UserService;
+import com.marcossousa.workshopmongo.services.exception.ObjectNotFoundException;
 
 @RestController
 @RequestMapping(value = "/users")
@@ -53,8 +54,13 @@ public class UserResource {
 		return ResponseEntity.noContent().build();
 
 	}
-
 	
-	
+	@RequestMapping(value ="/{id}",method = RequestMethod.PUT)
+	public ResponseEntity<Void> update(@RequestBody UserDTO objDto, @PathVariable String id) {
+		User obj = service.fromDTO(objDto);
+		obj.setId(id);
+		obj = service.uptate(obj);
+		return ResponseEntity.noContent().build();
+	}
 	
 }
