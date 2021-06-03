@@ -16,7 +16,6 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import com.marcossousa.workshopmongo.domain.User;
 import com.marcossousa.workshopmongo.dto.UserDTO;
 import com.marcossousa.workshopmongo.services.UserService;
-import com.marcossousa.workshopmongo.services.exception.ObjectNotFoundException;
 
 @RestController
 @RequestMapping(value = "/users")
